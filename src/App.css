@@ -1,0 +1,201 @@
+@font-face {
+	font-family: "Söhne Dreiviertelfett";
+	src: url("/assets/TestSöhneBreit-Dreiviertelfett.otf");
+}
+@font-face {
+	font-family: "Söhne Buch";
+	src: url("/assets/TestSöhneBreit-Buch.otf");
+}
+
+* {
+	font-family: "Söhne Dreiviertelfett";
+	padding: 0;
+	margin: 0;
+	box-sizing: border-box;
+	text-decoration: none;
+	list-style-type: none;
+}
+/* ----------------------------------------------------------------- */
+.container {
+	width: 100%;
+	height: 100vh;
+	display: flex;
+	overflow: hidden;
+}
+/* ----------------------------------------------------------------- */
+nav {
+	width: 13.5%;
+	height: 100%;
+	background: #202123;
+	padding: 1vh;
+}
+nav .option {
+	height: 5%;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}
+nav .option .new-chat {
+	display: flex;
+	align-items: center;
+	justify-content: flex-start;
+	width: 75%;
+	height: 100%;
+	border: 1px solid #6b6d81e8;
+	border-radius: 0.25vw;
+}
+nav .option .new-chat svg {
+	width: 0.8vw;
+	color: rgba(255, 255, 255, 0.925);
+	margin: 0 0.5vw;
+}
+nav .option .new-chat p {
+	font-family: "Söhne Buch";
+	font-size: 0.7vw;
+	color: rgba(255, 255, 255, 0.925);
+}
+nav .option .toggle-nav {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 20%;
+	height: 100%;
+	border: 1px solid #6b6d81e8;
+	border-radius: 0.25vw;
+}
+nav .option .toggle-nav svg {
+	width: 2vw;
+	color: rgba(255, 255, 255, 0.925);
+}
+nav .history {
+	height: 87.5%;
+}
+nav .profile {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	border-top: 1px solid #6b6d81e8;
+	height: 7.5%;
+	padding: 1vw 0.5vw 0.5vw 0.5vw;
+}
+nav .profile .pfp {
+	width: 17.5%;
+	height: 90%;
+	background: rgba(255, 0, 255, 0.815);
+	border-radius: 0.25vw;
+	border-radius: 0.25vw;
+}
+nav .profile .id {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 20%;
+	height: 100%;
+	font-family: "Söhne Buch";
+	font-size: 0.7vw;
+	color: rgba(255, 255, 255, 0.925);
+}
+nav .profile .edit {
+	display: flex;
+	align-items: center;
+	justify-content: flex-end;
+	width: 60%;
+	height: 100%;
+}
+nav .profile .edit svg {
+	width: 1vw;
+	color: white;
+}
+/* ----------------------------------------------------------------- */
+.main {
+	width: 86.5%;
+	height: 100%;
+	background: #343541;
+	display: flex;
+	justify-content: center;
+	flex-direction: column;
+	align-items: center;
+}
+.main .top {
+	display: flex;
+	width: 100%;
+	height: 50%;
+	align-items: flex-start;
+	justify-content: center;
+	padding: 2.5vw;
+}
+.main .bottom {
+	display: flex;
+	width: 100%;
+	height: 50%;
+	align-items: center;
+	justify-content: flex-end;
+	flex-direction: column;
+	padding: 2.5vw;
+}
+.main .title {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+.main .title h2 {
+	color: #565869;
+	font-size: 1.5vw;
+	margin: 0 0.5vw 0 0;
+}
+.main .title span {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	padding: 0.2vw 0.25vw;
+	border-radius: 0.25vw;
+	background: #fae68f;
+	text-transform: uppercase;
+	font-size: 0.65vw;
+	color: #0000008a;
+}
+.text-input {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	width: 40vw;
+	height: 6vh;
+	background: #40414f;
+	border-radius: 0.5vw;
+	padding: 0 1vw;
+	box-shadow: 5px 5px 20px 10px rgba(0, 0, 0, 0.05);
+}
+.text-input textarea {
+	resize: none;
+	outline: none;
+	background: none;
+	border: none;
+	width: 47.5vw;
+	height: 2vw;
+	font-size: 0.8vw;
+	line-height: 2vw;
+	color: #6b6d81e8;
+}
+.text-input svg {
+	width: 1.15vw;
+	color: #6b6d81e8;
+	cursor: pointer;
+}
+.help {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	position: absolute;
+	right: 1vw;
+	bottom: 1vw;
+	background: #40414f;
+	width: 1.4vw;
+	height: 1.4vw;
+	border-radius: 50%;
+	cursor: pointer;
+	box-shadow: 5px 5px 5px 5px rgba(0, 0, 0, 0.05);
+}
+.help img {
+	width: 75%;
+	height: 60%;
+}
