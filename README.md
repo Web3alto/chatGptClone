@@ -1,6 +1,7 @@
 # ChatGPT Clone
 
-Welcome to the **ChatGPT Clone** GitHub repository! This project aims to create a clone of the ChatGPT application using React and CSS. The goal is to provide a user-friendly interface where users can interact with a simulated chatbot powered by the GPT-3.5 language model.
+This project is currently in development, aiming to create a clone of the ChatGPT application using React and CSS. The goal is to provide a user-friendly interface where users can interact with a simulated chatbot powered by the GPT-3.5 language model.
+Please note that the project is not yet finished, but as soon as it's complete, a link will be provided for users to test the application.
 
 ## Project Overview
 
@@ -25,6 +26,6 @@ To get started with the project, follow these steps:
 
 1. Clone the repository to your local machine.
 2. Navigate to the project directory: `cd chat-gpt-clone`.
-3. Install project dependencies: `npm install`.
+3. Install project dependencies: `yarn`.
 4. Obtain GPT-3 API credentials from OpenAI and replace the placeholders in the code with your credentials.
-5. Start the development server: `npm start`.
+5. Start the development server: `yarn dev`.
