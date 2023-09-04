@@ -32,6 +32,14 @@ nav {
 	height: 100%;
 	background: #202123;
 	padding: 1vh;
+	transition: width 0.125s ease;
+	white-space: nowrap;
+	overflow: hidden;
+}
+
+nav.active {
+	width: 0%;
+	padding: 1vh 0;
 }
 nav .option {
 	height: 5%;
@@ -59,7 +67,6 @@ nav .option .new-chat svg {
 	margin: 0 0.5vw;
 }
 nav .option .new-chat p {
-	font-family: "Söhne Buch";
 	font-size: 0.7vw;
 	color: rgba(255, 255, 255, 0.925);
 }
@@ -74,6 +81,7 @@ nav .option .toggle-nav {
 	cursor: pointer;
 	transition: 0.25s ease;
 }
+
 nav .option .toggle-nav:hover {
 	background: #333538;
 }
@@ -110,22 +118,36 @@ nav .history .content svg {
 	color: rgba(255, 255, 255, 0.925);
 }
 nav .history .content h4 {
-	font-size: 0.65vw;
+	font-size: 0.7vw;
+	font-weight: 500;
 	letter-spacing: 0.075vw;
 	color: rgba(255, 255, 255, 0.925);
 	padding: 0 0 0 0.65vw;
 }
 nav .profile {
+	position: relative;
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
-	border-top: 1px solid #6b6d81e8;
 	height: 7.5%;
-	padding: 1vw 0.5vw 0.5vw 0.5vw;
+	padding: 0.5vw 0.75vw;
+	border-radius: 0.35vw;
+}
+nav .profile:after {
+	content: "";
+	position: absolute;
+	top: -15%;
+	left: 2%;
+	width: 12vw;
+	height: 1px;
+	background: #6b6d81e8;
+}
+nav .profile:hover {
+	background: #333538;
 }
 nav .profile .pfp {
 	width: 17.5%;
-	height: 90%;
+	height: 80%;
 	background: rgba(255, 0, 255, 0.74);
 	border-radius: 0.25vw;
 	border-radius: 0.25vw;
@@ -151,15 +173,70 @@ nav .profile .edit svg {
 	width: 1vw;
 	color: white;
 }
+.show-nav {
+	display: none;
+	top: 0.5vw;
+	left: 0.5vw;
+	position: absolute;
+	background: #343541;
+	width: 2.25vw;
+	height: 2.5vw;
+	border-radius: 0.25vw;
+	align-items: center;
+	justify-content: center;
+	cursor: pointer;
+	transition: 0.25s ease;
+}
+.show-nav:hover {
+	background: #3e404e;
+}
+.show-nav:hover::before {
+	content: "Open Sidebar";
+	position: absolute;
+	top: 50%;
+	left: 135%;
+	background: black;
+	color: white;
+	padding: 0.5vw;
+	border-radius: 0.25vw;
+	font-size: 0.725vw;
+	white-space: nowrap;
+	transform: translateY(-50%);
+	opacity: 0.8;
+	z-index: 1;
+}
+
+.show-nav:hover::after {
+	content: "";
+	position: absolute;
+	top: 50%;
+	left: 100%;
+	border-width: 0.5vw;
+	border-style: solid;
+	border-color: transparent black transparent transparent;
+	transform: translateY(-50%);
+}
+.show-nav svg {
+	width: 45%;
+	height: 45%;
+	color: rgba(255, 255, 255, 0.925);
+}
+.main.active .show-nav {
+	display: flex;
+}
 /* ----------------------------------------------------------------- */
 .main {
-	width: 86.5%;
+	width: calc(100% - 13.5%);
+	transition: width 0.125s ease;
 	height: 100%;
 	background: #343541;
 	display: flex;
 	justify-content: center;
 	flex-direction: column;
 	align-items: center;
+}
+.main.active {
+	width: 100%;
 }
 .main .top {
 	display: flex;
@@ -227,6 +304,57 @@ nav .profile .edit svg {
 	width: 1.15vw;
 	color: #6b6d81e8;
 	cursor: pointer;
+}
+.tooltip {
+	display: inline-block;
+}
+
+.tooltip .tooltip-text {
+	visibility: hidden;
+	width: 9vw;
+	background-color: rgba(0, 0, 0, 0.8);
+	color: white;
+	text-align: center;
+	padding: 1vw 0.75vw;
+	border-radius: 5px;
+	position: absolute;
+	z-index: 1;
+	bottom: 125%;
+	right: 75%;
+	opacity: 0;
+	transition: opacity 0.3s;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-direction: column;
+}
+.tooltip-text .faq {
+	width: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: flex-start;
+	margin: 0 0 1vw 0;
+}
+.tooltip-text .faq:hover {
+	background: #333538;
+}
+.tooltip-text .shortcut {
+	width: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: flex-start;
+}
+.tooltip-text svg {
+	width: 0.9vw;
+}
+.tooltip-text h3 {
+	font-size: 0.62vw;
+	font-weight: 400;
+	margin: 0 0 0 0.5vw;
+}
+.tooltip.active .tooltip-text {
+	visibility: visible;
+	opacity: 1;
 }
 .help {
 	display: flex;
