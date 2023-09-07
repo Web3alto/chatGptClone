@@ -193,6 +193,30 @@ nav .profile .edit svg {
 	width: 1vw;
 	color: white;
 }
+.profile-tooltip {
+	position: absolute;
+	visibility: hidden;
+	width: 12.5vw;
+	background-color: rgba(0, 0, 0);
+	color: white;
+	text-align: center;
+	padding: 1vw 0.75vw;
+	border-radius: 5px;
+	position: absolute;
+	z-index: 1;
+	bottom: 4.5vw;
+	left: 0.5vw;
+	opacity: 0;
+	transition: opacity 0.3s;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-direction: column;
+}
+.tooltip.active .profile-tooltip {
+	visibility: visible;
+	opacity: 1;
+}
 .show-nav {
 	display: none;
 	top: 0.5vw;
@@ -325,11 +349,11 @@ nav .profile .edit svg {
 	color: #6b6d81e8;
 	cursor: pointer;
 }
-.tooltip {
+.help-tooltip {
 	display: inline-block;
 }
 
-.tooltip .tooltip-text {
+.tooltip .help-tooltip {
 	visibility: hidden;
 	width: 9vw;
 	background-color: rgba(0, 0, 0, 0.8);
@@ -348,28 +372,28 @@ nav .profile .edit svg {
 	justify-content: center;
 	flex-direction: column;
 }
-.tooltip-text .faq {
+.help-tooltip .faq {
 	width: 100%;
 	display: flex;
 	align-items: center;
 	justify-content: flex-start;
 	margin: 0 0 1vw 0;
 }
-.tooltip-text .shortcut {
+.help-tooltip .shortcut {
 	width: 100%;
 	display: flex;
 	align-items: center;
 	justify-content: flex-start;
 }
-.tooltip-text svg {
+.help-tooltip svg {
 	width: 0.9vw;
 }
-.tooltip-text h3 {
+.help-tooltip h3 {
 	font-size: 0.62vw;
 	font-weight: 400;
 	margin: 0 0 0 0.5vw;
 }
-.tooltip.active .tooltip-text {
+.tooltip.active .help-tooltip {
 	visibility: visible;
 	opacity: 1;
 }

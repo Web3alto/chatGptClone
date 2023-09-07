@@ -2,7 +2,8 @@ import "./App.css";
 import { useState, useEffect } from "react";
 
 function App() {
-	const [tooltipActive, setTooltipActive] = useState(false);
+	const [profileTooltipActive, setProfileTooltipActive] = useState(false);
+	const [helpTooltipActive, setHelpTooltipActive] = useState(false);
 	const [navActive, setNavActive] = useState(false);
 	const [activeContentIndex, setActiveContentIndex] = useState<number | null>(
 		null
@@ -20,8 +21,12 @@ function App() {
 		setActiveContentIndex(0);
 	}, []);
 
-	const toggleTooltip = () => {
-		setTooltipActive(!tooltipActive);
+	const toggleProfileTooltip = () => {
+		setProfileTooltipActive(!profileTooltipActive);
+	};
+
+	const toggleHelpTooltip = () => {
+		setHelpTooltipActive(!helpTooltipActive);
 	};
 
 	const toggleNav = () => {
@@ -129,7 +134,6 @@ function App() {
 											viewBox="0 0 24 24"
 											stroke-linecap="round"
 											stroke-linejoin="round"
-											class="h-4 w-4"
 											height="1em"
 											width="1em"
 											xmlns="http://www.w3.org/2000/svg"
@@ -170,7 +174,7 @@ function App() {
 							</div>
 						))}
 					</div>
-					<div className="profile">
+					<div className="profile" onClick={toggleProfileTooltip}>
 						<div className="pfp"></div>
 						<div className="id">alto</div>
 						<div className="edit">
@@ -190,6 +194,26 @@ function App() {
 						</div>
 					</div>
 				</nav>
+				<div
+					className={`tooltip ${
+						profileTooltipActive ? "active" : ""
+					}`}
+				>
+					<div className="profile-tooltip">
+						<div className="plan">
+							<h3>My plan</h3>
+						</div>
+						<div className="custom">
+							<h3>Custom instructions</h3>
+						</div>
+						<div className="settings">
+							<h3>settings et beta</h3>
+						</div>
+						<div className="logout">
+							<h3>log out</h3>
+						</div>
+					</div>
+				</div>
 				<div className={`main ${navActive ? "active" : ""}`}>
 					<div className="show-nav" onClick={closeNav}>
 						<svg
@@ -242,15 +266,17 @@ function App() {
 						</div>
 					</div>
 					<div
-						className={`tooltip ${tooltipActive ? "active" : ""}`}
-						onClick={toggleTooltip}
+						className={`tooltip ${
+							helpTooltipActive ? "active" : ""
+						}`}
+						onClick={toggleHelpTooltip}
 					>
 						<div className="help">
 							<img
 								src="/assets/point-dinterrogation.png"
 								alt="point-dinterrogation"
 							/>
-							<div className="tooltip-text">
+							<div className="help-tooltip">
 								<div className="faq">
 									<svg
 										stroke="currentColor"
