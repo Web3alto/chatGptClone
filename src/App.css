@@ -209,9 +209,61 @@ nav .profile .edit svg {
 	opacity: 0;
 	transition: opacity 0.3s;
 	display: flex;
-	align-items: center;
+	align-items: flex-start;
 	justify-content: center;
 	flex-direction: column;
+}
+.profile-tooltip .plan {
+	width: 100%;
+	padding: 0 0.25vw 0.6vw 0.25vw;
+	display: flex;
+	align-items: center;
+	justify-content: flex-start;
+	cursor: pointer;
+}
+.profile-tooltip h3 {
+	font-weight: 100;
+	font-size: 0.7vw;
+	letter-spacing: 0.05vw;
+}
+.profile-tooltip svg {
+	width: 0.9vw;
+	margin: 0 0.5vw 0 0;
+}
+.profile-tooltip .custom {
+	padding: 0.6vw 0.25vw;
+	display: flex;
+	align-items: center;
+	justify-content: flex-start;
+	width: 100%;
+	cursor: pointer;
+}
+.profile-tooltip .settings {
+	display: flex;
+	align-items: center;
+	justify-content: flex-start;
+	width: 100%;
+	padding: 0.6vw 0.25vw;
+	cursor: pointer;
+}
+.profile-tooltip .logout {
+	position: relative;
+	display: flex;
+	align-items: center;
+	justify-content: flex-start;
+	width: 100%;
+	padding: 0.6vw 0.25vw 0 0.25vw;
+	margin: 1vw 0 0 0;
+	cursor: pointer;
+}
+.profile-tooltip .logout:after {
+	content: "";
+	position: absolute;
+	top: -0.35vw;
+	left: -0.5vw;
+	width: 110%;
+	height: 1px;
+	background: #6b6d81e8;
 }
 .tooltip.active .profile-tooltip {
 	visibility: visible;
