@@ -8,13 +8,14 @@ function App() {
 	const [activeContentIndex, setActiveContentIndex] = useState<number | null>(
 		null
 	);
-
 	const [contentItems, setContentItems] = useState([
 		{
 			title: "Latest Research",
 			active: true, // Set the first item as active by default
 		},
 	]);
+	const [inputText, setInputText] = useState(""); // State to store the input text
+	const [chatText, setChatText] = useState(""); // State to store chat text
 
 	useEffect(() => {
 		// Set the initial active content index when the component mounts
@@ -57,6 +58,30 @@ function App() {
 	const removeContentItem = (index: number) => {
 		setContentItems((prevItems) => prevItems.filter((_, i) => i !== index));
 		setActiveContentIndex(null);
+	};
+
+	const handleInputChange = (
+		event: React.ChangeEvent<HTMLTextAreaElement>
+	) => {
+		// Update the input text state
+		setInputText(event.target.value);
+	};
+
+	const handleSubmit = () => {
+		if (inputText.trim() !== "") {
+			setChatText(inputText); // Set chat text to the entered text
+			setInputText(""); // Clear the input text
+		}
+	};
+
+	// Handle Enter key press to submit
+	const handleKeyPress = (
+		event: React.KeyboardEvent<HTMLTextAreaElement>
+	) => {
+		if (event.key === "Enter" && !event.shiftKey) {
+			event.preventDefault(); // Prevent newline character
+			handleSubmit();
+		}
 	};
 
 	return (
@@ -305,18 +330,24 @@ function App() {
 						</div>
 					</div>
 					<div className="bottom">
+						<div className="chat">
+							<div className="content">{chatText}</div>
+						</div>
 						<div className="text-input">
 							<textarea
 								id="prompt-textarea"
 								data-id="root"
 								rows={1}
 								placeholder="Send a message"
+								value={inputText}
+								onChange={handleInputChange}
+								onKeyPress={handleKeyPress}
 							></textarea>
 							<svg
 								xmlns="http://www.w3.org/2000/svg"
 								viewBox="0 0 16 16"
 								fill="none"
-								stroke-width="2"
+								strokeWidth="2"
 							>
 								<path
 									d="M.5 1.163A1 1 0 0 1 1.97.28l12.868 6.837a1 1 0 0 1 0 1.766L1.969 15.72A1 1 0 0 1 .5 14.836V10.33a1 1 0 0 1 .816-.983L8.5 8 1.316 6.653A1 1 0 0 1 .5 5.67V1.163Z"
