@@ -337,7 +337,7 @@ nav .profile .edit svg {
 .main .top {
 	display: flex;
 	width: 100%;
-	height: 20%;
+	height: 10%;
 	align-items: flex-start;
 	justify-content: center;
 	padding: 2.5vw;
@@ -345,11 +345,12 @@ nav .profile .edit svg {
 .main .bottom {
 	display: flex;
 	width: 100%;
-	height: 80%;
+	height: 90%;
 	align-items: center;
-	justify-content: space-between;
+	justify-content: flex-start;
 	flex-direction: column;
-	padding: 2.5vw 0;
+	margin: 2.5vw 0;
+	position: relative;
 }
 .main .title {
 	display: flex;
@@ -375,18 +376,68 @@ nav .profile .edit svg {
 	color: #0000008a;
 }
 .main .chat {
-	background: #444654;
 	width: 100%;
+	height: auto;
 }
-.main .chat .content {
+.main .chat-content {
+	position: relative;
+	width: 100%;
+	height: auto;
+	background: #343541;
+}
+.chat-content .content {
 	width: 45%;
 	margin: 0 auto;
-	padding: 1.25vw 0;
-	font-size: 0.725vw;
+	height: auto;
 	color: white;
-	font-weight: 300;
+	font-size: 0.525vw;
+	font-weight: 400;
+	padding: 1vw 0;
+}
+.chat-answer h2,
+.chat-content h2 {
+	font-weight: 400 !important;
+}
+.chat-content .content:after {
+	content: "";
+	z-index: 10;
+	position: absolute;
+	left: 20vw;
+	top: 0.5vw;
+	width: 2vw;
+	height: 2vw;
+	background: rgba(255, 0, 255, 0.74);
+	border-radius: 0.25vw;
+}
+.main .chat-answer {
+	position: relative;
+	width: 100%;
+	height: auto;
+	background: #444654;
+}
+.chat-answer .answer {
+	width: 45%;
+	margin: 0 auto;
+	height: auto;
+	color: white;
+	font-size: 0.525vw;
+	font-weight: 400;
+	padding: 1vw 0;
+}
+.chat-answer .answer:after {
+	content: "";
+	z-index: 10;
+	position: absolute;
+	left: 20vw;
+	top: 0.5vw;
+	width: 2vw;
+	height: 2vw;
+	background: url("../public/assets/icon.png") center / cover;
+	border-radius: 0.25vw;
 }
 .text-input {
+	position: absolute;
+	bottom: -0.5vw;
 	display: flex;
 	align-items: center;
 	justify-content: space-between;

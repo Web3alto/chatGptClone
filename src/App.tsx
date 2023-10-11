@@ -1,5 +1,6 @@
 import "./App.css";
 import { useState, useEffect } from "react";
+import { sendMsgToOpenAI } from "./openai.js";
 
 function App() {
 	const [profileTooltipActive, setProfileTooltipActive] = useState(false);
@@ -330,8 +331,15 @@ function App() {
 						</div>
 					</div>
 					<div className="bottom">
-						<div className="chat">
-							<div className="content">{chatText}</div>
+						<div className="chat-content">
+							<div className="content">
+								<h2>C'est moi qui parle</h2>
+							</div>
+						</div>
+						<div className="chat-answer">
+							<div className="answer">
+								<h2>Bonjour je suis votre assistant virtuel</h2>
+							</div>
 						</div>
 						<div className="text-input">
 							<textarea
