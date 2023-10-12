@@ -1,6 +1,5 @@
 import "./App.css";
 import { useState, useEffect } from "react";
-import { sendMsgToOpenAI } from "./openai.js";
 
 function App() {
 	const [profileTooltipActive, setProfileTooltipActive] = useState(false);
@@ -84,6 +83,24 @@ function App() {
 			handleSubmit();
 		}
 	};
+
+	const [text, setText] = useState("");
+	const [currentIndex, setCurrentIndex] = useState(0);
+	const [isTyping, setIsTyping] = useState(true);
+
+	useEffect(() => {
+		const originalText =
+			"Can you provide me with a list of 8 interview questions that a tech recruiter can use to evaluate candidates for technical roles.";
+
+		if (currentIndex < originalText.length) {
+			setTimeout(() => {
+				setText(originalText.substring(0, currentIndex + 1));
+				setCurrentIndex(currentIndex + 1);
+			}, 35);
+		} else {
+			setIsTyping(false);
+		}
+	}, [currentIndex]);
 
 	return (
 		<>
@@ -333,12 +350,47 @@ function App() {
 					<div className="bottom">
 						<div className="chat-content">
 							<div className="content">
-								<h2>C'est moi qui parle</h2>
+								<h2>
+									{text}
+									{isTyping && <span>|</span>}
+								</h2>
 							</div>
 						</div>
 						<div className="chat-answer">
 							<div className="answer">
-								<h2>Bonjour je suis votre assistant virtuel</h2>
+								<h2>
+									<span>
+										Important Notice: App Functionality
+										Limited Due to Cost Constraints
+									</span>
+									<br />
+									<br />
+									We want to inform our valued users that the
+									current version of our app does not connect
+									to a real API. We understand that this
+									limitation may impact your experience, and
+									we apologize for any inconvenience caused.
+									<br />
+									<br />
+									The reason behind this decision is primarily
+									due to cost considerations. Integrating with
+									a real API can incur significant expenses,
+									and as a result, we have opted for a
+									simulated data environment to keep our app
+									accessible to as many users as possible
+									without compromising its quality.
+									<br />
+									<br />
+									We appreciate your understanding and
+									continued support as we work towards
+									enhancing the functionality of our app. If
+									you have any questions or concerns, please
+									don't hesitate to reach out to our customer
+									support team.
+									<br />
+									<br />
+									Thank you for your interest in my work!
+								</h2>
 							</div>
 						</div>
 						<div className="text-input">
